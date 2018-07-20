@@ -64,6 +64,7 @@ class Step1 extends Component {
     render(){
         const { updateStep1 } = this.props
         let { propertyname, address, city, state, zip } = this.state
+        console.log(this.props.match.params)
         return(
             <div className='Step1'>
                 <input type="text" placeholder="Name" onChange={e => this.updateName( e.target.value )}/>

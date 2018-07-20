@@ -38,6 +38,7 @@ class Step3 extends Component {
     updateStep3(){
         updateMortgage(this.state.mortgage)
         updateRent(this.state.rent)
+        this.props.history.goBack
     }
 
     render(){
@@ -45,9 +46,9 @@ class Step3 extends Component {
             <div className='Step1'>
                 <input type="text" placeholder="Monthly Mortage Amount" onChange={e => this.updateMortgage( e.target.value )} value={this.state.mortgage}/>
                 <input type="text" placeholder="Desired Monthly Rent" onChange={e => this.updateRent( e.target.value )} value={this.state.mortgage}/>
-                <Link to='/wizard/Step2'>
+                {/* <Link to='/wizard/Step2'> */}
                     <button onClick={ () => this.updateStep3()}>Previous Step</button>
-                </Link>
+                {/* </Link> */}
                 <button onClick={ () => this.createHouse(this.state)}>Complete</button>
             </div>
         )
