@@ -10,12 +10,12 @@ export default class Dashboard extends Component {
         this.state ={
             houses: []
         }
+        this.deleteHouse=this.deleteHouse.bind(this)
     }
 
     componentDidMount() {
         axios.get('/api/all')
         .then( results => {
-            console.log(results.data)
             this.setState({
                 houses: results.data
             })
@@ -33,11 +33,10 @@ export default class Dashboard extends Component {
                                 deleteHouse = {this.deleteHouse}/>
             )
         })
-        console.log(this.state.houses)
         return(
             <div className="Dashboard">
             Dashboard
-            <Link to="/wizard"><button>Add New Property</button></Link>
+            <Link to="/wizard/step1"><button>Add New Property</button></Link>
             { mappedHouses }
             </div>
         )
